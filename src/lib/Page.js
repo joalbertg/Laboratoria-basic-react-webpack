@@ -7,7 +7,7 @@ import React from 'react';
 // y los `pageProps` por defecto
 
 const pageProps = {
-  headerTitulo: 'Getting Started',
+  headerTitulo: 'Getting StartedXX',
   headerDescripcion: 'Descripcion',
   mainSectionTitulo: 'Main Section',
   mainSectionArticles: [

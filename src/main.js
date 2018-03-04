@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 // Importamos el componente `Page` y las `defaultPageProps`
 // usamos { name } si no es el export por defecto como 
 // el caso de { defaultPageProps  }
-import Page, { defaultPageProps  } from './page';
+import Page, { defaultPageProps  } from './lib/Page';
 
 // Aquí vemos un poco de la magia de webpack
 // esta instrucción se encargara de inyectar el codigo de `styles.css`
@@ -31,8 +31,8 @@ render(Page, defaultPageProps);
 // y si hay algún cambio, recargamos la página "on-the-fly"
 // sin necesidad de que refresquemos el navegador
 if (module.hot) {
-  module.hot.accept('./page', () => {
-    const newApp = require('./page').default;
+  module.hot.accept('./lib/Page', () => {
+    const newApp = require('./lib/Page').default;
     render(newApp);
   });
 }

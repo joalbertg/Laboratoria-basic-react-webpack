@@ -7,6 +7,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
+  context: resolve(__dirname, 'src'),
   devtool: 'cheap-module-eval-source-map',
 
   // definimos las entradas de nuestra aplicacion
