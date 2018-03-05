@@ -3,9 +3,9 @@
 // se llama con React.Component
 import React from 'react';
 
-import Header from './Header';
-import Section from './Section';
-import Aside from './Aside';
+import Header from './components/Header';
+import Section from './components/Section';
+import Aside from './components/Aside';
 
 // ... aqui va la definicion de tu componente
 // y los `pageProps` por defecto
