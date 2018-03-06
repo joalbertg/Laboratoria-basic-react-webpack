@@ -31,26 +31,40 @@ const pageProps = {
 
 // exportamos por defecto el componente `Page`
 export default class Page extends React.Component {
-  constructor({ headerTitulo, headerDescripcion, mainSectionTitulo, mainSectionArticles, asideTitulo, asideLinks }) {
-    super();
-
+  setHeader({ headerTitulo, headerDescripcion }) {
     this.headerProps = {
       titulo: headerTitulo,
       parrafo: headerDescripcion
     };
+  }
 
+  setSection({ mainSectionTitulo, mainSectionArticles }) {
     this.objSection = {
       title: mainSectionTitulo,
       articles: mainSectionArticles
-    };
+    }
+  }
 
+  setAside({ asideTitulo, asideLinks }) {
     this.objAside = {
       title: asideTitulo,
       links: asideLinks
     };
-  };
+  }
 
   render() {
+    const {
+      headerTitulo,
+      headerDescripcion,
+      mainSectionTitulo,
+      mainSectionArticles,
+      asideTitulo,
+      asideLinks } = this.props;
+
+    this.setHeader({ headerTitulo, headerDescripcion });
+    this.setSection({ mainSectionTitulo, mainSectionArticles });
+    this.setAside({ asideTitulo, asideLinks });
+
     return (
       <div>
         <Header {...this.headerProps} />

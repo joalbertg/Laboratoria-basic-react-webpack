@@ -8,17 +8,8 @@ const options = {
 };
 
 export default class Aside extends React.Component {
-  constructor({ links, title }) {
-    super();
-
-    this.title = title;
-    this.links = links;
-
-    this.listLinks = this.getLinks();
-  };
-
-  getLinks() {
-    return this.links.map((element, index) => (
+  getLinks(links) {
+    return links.map((element, index) => (
       <li key={index}>
         <a href={element.href}>{element.texto}</a>
       </li>)
@@ -26,10 +17,12 @@ export default class Aside extends React.Component {
   };
 
   render() {
+    const { links, title } = this.props;
+
     return (
       <aside {...options}>
-        <h4>{this.title}</h4>
-        {this.listLinks}
+        <h4>{title}</h4>
+        {this.getLinks(links)}
       </aside>
     );
   }

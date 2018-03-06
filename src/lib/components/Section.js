@@ -11,17 +11,8 @@ const options = {
 };
 
 export default class Section extends React.Component {
-  constructor({ title, articles }) {
-    super();
-
-    this.title = title;
-    this.articles = articles;
-
-    this.listArticles = this.getArticles();
-  };
-
-  getArticles() {
-    return this.articles.map((element, index) => {
+  getArticles(articles) {
+    return articles.map((element, index) => {
       const articleProps = {
         key: index.toString(),
         titulo: element.titulo,
@@ -32,10 +23,12 @@ export default class Section extends React.Component {
   };
 
   render() {
+    const { title, articles } = this.props;
+
     return (
       <section {...options}>
-        <h2>{this.title}</h2>
-        {this.listArticles}
+        <h2>{title}</h2>
+        {this.getArticles(articles)}
       </section>
     );
   }
