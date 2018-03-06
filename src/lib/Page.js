@@ -29,6 +29,31 @@ const pageProps = {
   ],
 };
 
+const ConChildren = ({ children }) => (
+  <div>
+    <div>{children}</div>
+    <div>{React.Children.toArray(children).map(n => n * -1)}</div>
+  </div>
+);
+
+const ConChildren2 = ({ children }) => {
+  // verifica que tenga un solo hijo y lo asigna a c2
+  // que es un componente
+  const c2 = React.Children.only(children);
+  // saca una copia de c2 y no una referencia, y le setea el hijo
+  const nuevoBold = React.cloneElement(c2, { children: ['nuevo children'] });
+
+  return (
+    <div>
+      <div>{nuevoBold}</div>
+    </div>
+  )
+};
+
+const Bold = ({ children }) => (
+  <b style={{ textTransform: "uppercase" }}>{children}</b>
+);
+
 // exportamos por defecto el componente `Page`
 export default class Page extends React.Component {
   setHeader({ headerTitulo, headerDescripcion }) {
@@ -67,6 +92,17 @@ export default class Page extends React.Component {
 
     return (
       <div>
+        <ConChildren>
+          {1}
+          {2}
+          {3}
+        </ConChildren>
+        <ConChildren2>
+          <Bold>
+            aaaaaa
+          </Bold>
+        </ConChildren2>
+
         <Header {...this.headerProps} />
         <Section {...this.objSection} />
         <Aside {...this.objAside} />
