@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Article extends React.Component {
   render() {
@@ -6,9 +7,19 @@ export default class Article extends React.Component {
     return (
       <article>
         <h3>{titulo}</h3>
-        <p>{descripcion}</p>
+        {/* <p>{descripcion}</p> */}
+        {descripcion && (<p>{descripcion}</p>)}
         <hr />
       </article>
     );
   }
 }
+
+Article.propTypes = {
+  titulo: PropTypes.string.isRequired,
+  descripcion: PropTypes.string,
+};
+
+Article.defaultProps = {
+  descripcion: ''
+};
