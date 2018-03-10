@@ -29,6 +29,13 @@ const pageProps = {
   ],
 };
 
+// Componente que agrega un borde del color deseado alrededor de los `children`
+const ConBorde = ({ color, children }) => (
+  <div style={{ border: `solid 3px ${color}` }}>
+    {children}
+  </div>
+);
+
 const ConChildren = ({ children }) => (
   <div>
     <div>{children}</div>
@@ -92,6 +99,10 @@ export default class Page extends React.Component {
 
     return (
       <div>
+        <ConBorde color="blue">
+          <h1>Bienvenido</h1>
+          <p>Gracias por la visita</p>
+        </ConBorde>
         <ConChildren>
           {1}
           {2}
